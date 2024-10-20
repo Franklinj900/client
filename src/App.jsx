@@ -1,11 +1,12 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-
+import HomePage from './pages/HomePage';
+import TaskForm from './pages/TaskForm';
 function App() {
   return (
    <BrowserRouter>
     <Routes>
-      <Route path='/' element={<h1>Home page</h1>}/>
-      <Route path='/new' element={<h1>New page</h1>}/>
+      <Route path='/' element={<HomePage/>}/>
+      <Route path='/task/new' element={<TaskForm/>}/>
     </Routes>
    </BrowserRouter> 
   )
