@@ -1,8 +1,17 @@
+import {useEffect, useState} from 'react'
+import TaskList from '../components/TaskList'
+import { fetchTasks } from '../api/tasks';
+
 function HomePage() {
+  const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+    fetchTasks().then((res) => {setTasks(res.data)})
+    .catch((err) => console.log(err));
+  }, []);
   return (
-    <div>
-      <h1 className="text-3xl font-extrabold text-blue-300">Homepage</h1>
-    </div>
+  <>
+    <TaskList tasks={tasks}/>
+  </>
   )
 }
 
